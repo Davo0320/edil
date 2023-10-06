@@ -45,4 +45,28 @@ export class CRUD{
         this.#save();
         return this.#data.length;
     }
+    
+    read(id){
+        this.#checkThatElementExistsWithId(id);
+        return this.#data[id];
+    }
 
+    readAll(){
+        return this.#data;
+    }
+   
+    update(id,data){
+        this.#checkThatElementExistsWithId(id);
+        this.#data[id] =  data;
+        this.#save();
+        return true;
+    }
+
+    delete(id){
+        this.#checkThatElementExistsWithId(id);
+        this.#data.splice(id,1);
+        this.#save();
+        return true;
+    }
+
+ }
